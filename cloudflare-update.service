@@ -1,0 +1,14 @@
+[Unit]
+Description=Cloudflare DNS Update Service
+After=network.target
+
+[Service]
+ExecStart=/bin/bash /path/to/updateDNS.sh/
+Restart=on-failure
+User=youruser
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=cloudflare-update
+
+[Install]
+WantedBy=multi-user.target
